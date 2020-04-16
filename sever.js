@@ -135,6 +135,7 @@ const RootMutationType = new GraphQLObjectType({
                 return author
             }
         },
+        //updtae a book by id 
         updateBook: {
             type: BookType,
             description: 'updating a book',
@@ -143,9 +144,23 @@ const RootMutationType = new GraphQLObjectType({
                 id: { type: GraphQLNonNull(GraphQLInt) }
             },
             resolve: (parent, args) => {
-                const book = { id: arg.id, name: args.name }
-                books[arg.id] = book
+                const book = { id: args.id, name: args.name }
+                books[args.id - 1] = book
                 return book
+            }
+        },
+        //deleting book by id
+        deletingBook: {
+            type: BookType,
+            description: 'deleting a book',
+            args: {
+                id: { type: GraphQLNonNull(GraphQLInt) }
+            },
+            resolve: (parent, args) => {
+                const book = { id: args.id }
+                const num = args.id - 1;
+                books.splice(num, 1)
+                return 'the book has been deleted'
             }
         }
     })
