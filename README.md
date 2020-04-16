@@ -4,3 +4,5 @@ created by @WebDevSimplified
 
 to run 
 npm run devStart
+
+go to http://localhost:5000/graphql
