@@ -3,4 +3,4 @@ source at: https://github.com/WebDevSimplified/Learn-GraphQL/blob/master/server.
 created by @WebDevSimplified
 
 to run 
-npm rub devStart
+npm run devStart
